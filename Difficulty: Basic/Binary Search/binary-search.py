@@ -1,0 +1,22 @@
+class Solution:
+    def binarySearch(self, arr, k):
+        # code here
+        low = 0
+        high = len(arr)-1
+        if low>high:
+            return False
+
+        while low<=high:
+            mid =  (low+high)//2
+            if arr[mid] == k:
+                return True
+            elif arr[mid] > k:
+                high = mid-1
+            elif arr[mid] < k:
+                low = mid+1
+        return False
+                
+                
+            
+        
+        
