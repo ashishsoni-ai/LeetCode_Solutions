@@ -2,7 +2,14 @@ class Solution:
     def lowerBound(self, arr, target):
         # code here
         n = len(arr)
-        for i in range(n):
-            if arr[i] >= target:
-                return i
-        return n
+        low = 0
+        high = n-1
+        ans = n
+        while low <= high :
+            mid = (low+high)//2
+            if arr[mid] >= target:
+                ans = mid
+                high =mid-1
+            else:
+                low = mid+1
+        return ans
