@@ -3,5 +3,9 @@ class Solution:
         # code here
         if len(s1) != len(s2):
             return False
-        s = s1+s1
-        return s2 in s
+        double_s = s1 + s1
+        
+        if s2 in double_s:
+            return True
+        return False
+            
