@@ -3,18 +3,20 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        n = len(nums)
+        mid = 0
+        low = 0
+        high = len(nums)-1
 
-        for i in range(n):
-            isSwap = False
-            for j in range(n-i-1):
-                if nums[j]>nums[j+1]:
-                    #Swap
-                    temp = nums[j]
-                    nums[j] = nums[j+1]
-                    nums[j+1] = temp
-                    isSwap = True
-            if not isSwap:
-                break
+        while mid<=high:
+            if nums[mid] == 0:
+                nums[low],nums[mid] = nums[mid],nums[low]
+                mid += 1
+                low += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[high],nums[mid] = nums[mid],nums[high]
+                high -= 1
+        return nums
                 
         
