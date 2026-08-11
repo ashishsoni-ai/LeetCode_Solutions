@@ -1,0 +1,17 @@
+class Solution:
+    def intersectPoint(self, head1, head2):
+        p1 = head1
+        p2 = head2
+
+        while p1 != p2:
+            if p1 is None:
+                p1 = head2
+            else:
+                p1 = p1.next
+
+            if p2 is None:
+                p2 = head1
+            else:
+                p2 = p2.next
+
+        return p1
