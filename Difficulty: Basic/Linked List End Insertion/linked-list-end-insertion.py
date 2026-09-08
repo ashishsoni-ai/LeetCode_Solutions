@@ -7,15 +7,14 @@ class Node:
 
 class Solution:
     def insertAtEnd(self, head, x):
-        #code here 
+        #code here
         newNode = Node(x)
         if head is None:
             return newNode
-        current = head
         
-        while current.next != None:
-            current = current.next
-        current.next = newNode
-
+        curr = head
+        while curr.next:
+            curr = curr.next
+        curr.next = newNode
+        newNode.next = None
         return head
-            
