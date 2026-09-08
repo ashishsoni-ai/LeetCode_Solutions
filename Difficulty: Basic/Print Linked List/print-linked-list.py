@@ -8,10 +8,9 @@ class Node:
 class Solution:
     def printList(self, head):
         # code here
-        temp = head
         ans = []
-        while temp != None:
-            ans.append(temp.data)
-            temp = temp.next
+        curr = head
+        while curr:
+            ans.append(curr.data)
+            curr = curr.next
         return ans
-            
