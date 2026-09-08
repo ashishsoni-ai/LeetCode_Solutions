@@ -7,9 +7,10 @@ class Node:
 class Solution:
     def getCount(self, head):
         # code here
-        count =  head
-        l = 0
-        while count != None:
-            count = count.next
-            l +=1
-        return l
+        length = 0
+        curr = head
+        while curr:
+            length += 1
+            curr = curr.next
+        return length
+        
