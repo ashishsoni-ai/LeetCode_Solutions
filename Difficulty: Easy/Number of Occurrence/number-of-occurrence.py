@@ -2,8 +2,7 @@ class Solution:
     def countFreq(self, arr, target):
         # code here
         count = 0
-        n = len(arr)
-        for i in range(n):
+        for i in range(len(arr)):
             if arr[i] == target:
                 count += 1
         return count
