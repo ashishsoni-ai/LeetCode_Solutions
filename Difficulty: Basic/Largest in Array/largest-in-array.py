@@ -1,9 +1,15 @@
 class Solution:
+    def Find(self,arr,i,max_element):
+        length = len(arr)
+        if i >= length:
+            return max_element
+         
+        if arr[i] > max_element:
+            max_element = arr[i]
+          
+        return self.Find(arr,i+1,max_element)
+
     def largest(self, arr):
-        # code here
-        big = arr[0]
-        l = len(arr)
-        for i in range(l):
-            if arr[i] > big:
-                big = arr[i]
-        return big
+        return self.Find(arr,0,float("-inf"))
+        
+        
