@@ -1,15 +1,16 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        prefix_sum = 0
+        dict1 = {0:1}
+        curr_sum = 0
         count = 0
-        mp = {0: 1}  # prefix sum 0 occurs once
-
         for num in nums:
-            prefix_sum += num
-
-            if (prefix_sum - k) in mp:
-                count += mp[prefix_sum - k]
-
-            mp[prefix_sum] = mp.get(prefix_sum, 0) + 1
-
+            curr_sum += num
+            required = curr_sum - k
+            if required in dict1:
+                count += dict1[required]
+            if curr_sum not in dict1:
+                dict1[curr_sum] = 1
+            else:
+                dict1[curr_sum] += 1
         return count
+
