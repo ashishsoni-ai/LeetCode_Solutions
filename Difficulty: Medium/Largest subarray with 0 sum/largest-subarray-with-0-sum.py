@@ -1,15 +1,20 @@
 class Solution:
     def maxLength(self, arr):
-        # code here
-        ans = 0
-        hashmap = {0:-1}
-        sum1 = 0
+        mp = {}
+        max_len = 0
+        total = 0
+        i = -1
+        mp[total] = i
         
-        for i in range(len(arr)):
-            sum1 += arr[i]
-            if sum1 in hashmap:
-                ans = max(ans, i - hashmap[sum1])
+        while i < len(arr)-1:
+            i += 1
+            total += arr[i]
+            if total not in mp:
+                mp[total] = i
             else:
-                hashmap[sum1] = i
-        return ans
-                
+                length = i - mp[total]
+                if max_len < length :
+                    max_len = length
+        return max_len
+        
+        
