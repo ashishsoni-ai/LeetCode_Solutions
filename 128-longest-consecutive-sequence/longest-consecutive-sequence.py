@@ -1,14 +1,27 @@
 class Solution:
+    def FindLnegth(self,key,mp):
+
+        ans = 0
+        while key in mp:
+            ans += 1
+            key += 1
+        return ans
+
+
     def longestConsecutive(self, nums: list[int]) -> int:
-        set1 = set(nums)
+        mp  = {}
         max_length = 0
-        for num in set1:
-            if num-1 not in set1:
-                curr = num
-                length = 1
-                while curr+1 in set1:
-                    curr += 1
-                    length += 1
-                max_length = max(max_length,length)
+        for i in range(len(nums)):
+            mp[nums[i]] = True
+
+        for j in range(len(nums)):
+            if nums[j]-1 in mp:
+                mp[nums[j]] = False
+
+        for key in mp:
+            if mp[key] == True:
+                max_length = max(max_length,self.FindLnegth(key,mp))
         return max_length
+
+
         
