@@ -9,13 +9,13 @@ class Solution:
             if nums[right] == 0:
                 zeroes += 1
             
-            while zeroes > k:
+            if zeroes > k:
                 if nums[left] == 0:
                     zeroes -= 1
                 left += 1
             
-            
-            maxi = max(maxi,right-left+1)
+            if zeroes <= k:
+                maxi = max(maxi,right-left+1)
             right += 1
         return maxi
         
